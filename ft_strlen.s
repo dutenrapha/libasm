@@ -7,7 +7,7 @@ global ft_strlen
 
 ft_strlen:
   mov rbx, rdi
-  mov rdx, 0;
+  mov rdx, 0
 _loop:
   cmp byte[rbx], NULL
   je _end

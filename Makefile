@@ -5,8 +5,8 @@ OBJ=$(addprefix ./, $(SRC:.s=.o))
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@gcc -c main.c -o main.o
-	@gcc $(OBJ) main.o -o $@ -no-pie
+	@gcc -c main.c -o main.o -g
+	@gcc $(OBJ) main.o -o $@ -no-pie -g
 
 %.o:	%.s
 	@nasm $< -f elf64
