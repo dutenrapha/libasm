@@ -4,6 +4,7 @@
 
 int ft_strlen(char *str);
 char *ft_strcpy(char *dest, const char *src);
+int ft_strcmp(const char *s1, const char *s2);
 
 int main(void)
 {
@@ -88,6 +89,38 @@ int main(void)
   src = "casa";
   printf("Valor esperado %s, valor obtido %s\n", strcpy(dst1,src), ft_strcpy(dst2,src));
 
+
+  printf("\n");
+  printf("**********************");
+  printf("TESTE FUNCAO FT_STRCMP");
+  printf("**********************\n");
+
+  char *str1;
+  char *str2;
+
+  str1 = "1";
+  str2 = "12";
+  printf("Valor esperado %d, valor obtido %d\n", strcmp(str1,str2), ft_strcmp(str1,str2));
+
+  str1 = "1";
+  str2 = "123";
+  printf("Valor esperado %d, valor obtido %d\n", strcmp(str1,str2), ft_strcmp(str1,str2));
+
+  str1 = "aaa";
+  str2 = "aaa";
+  printf("Valor esperado %d, valor obtido %d\n", strcmp(str1,str2), ft_strcmp(str1,str2));
+
+  str1 = "123456789";
+  str2 = "123456789";
+  printf("Valor esperado %d, valor obtido %d\n", strcmp(str1,str2), ft_strcmp(str1,str2));
+
+  str1 = "aaa";
+  str2 = "a";
+  printf("Valor esperado %d, valor obtido %d\n", strcmp(str1,str2), ft_strcmp(str1,str2));
+
+  str1 = "123456789";
+  str2 = "12";
+  printf("Valor esperado %d, valor obtido %d\n", strcmp(str1,str2), ft_strcmp(str1,str2));
 
   return (0);
 }
