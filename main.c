@@ -5,6 +5,7 @@
 int ft_strlen(char *str);
 char *ft_strcpy(char *dest, const char *src);
 int ft_strcmp(const char *s1, const char *s2);
+char *ft_strdup(const char *s);
 
 int main(void)
 {
@@ -121,6 +122,28 @@ int main(void)
   str1 = "123456789";
   str2 = "12";
   printf("Valor esperado %d, valor obtido %d\n", strcmp(str1,str2), ft_strcmp(str1,str2));
+
+  printf("\n");
+  printf("**********************");
+  printf("TESTE FUNCAO FT_STRDUP");
+  printf("**********************\n");
+
+  char *str3;
+
+  str1 = "";
+  str2 = strdup(str1);
+  str3 = ft_strdup(str1);
+  printf("Valor esperado %s, valor obtido %s\n", str2, str3);
+
+  str1 = "CASA";
+  str2 = strdup(str1);
+  str3 = ft_strdup(str1);
+  printf("Valor esperado %s, valor obtido %s\n", str2, str3);
+
+  str1 = "CASA AmArElA";
+  str2 = strdup(str1);
+  str3 = ft_strdup(str1);
+  printf("Valor esperado %s, valor obtido %s\n", str2, str3);
 
   return (0);
 }
