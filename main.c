@@ -2,10 +2,16 @@
 #include <string.h>
 #include <stdlib.h>
 
-int ft_strlen(char *str);
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+size_t ft_strlen(const char *str);
 char *ft_strcpy(char *dest, const char *src);
 int ft_strcmp(const char *s1, const char *s2);
 char *ft_strdup(const char *s);
+size_t	ft_read(int fd, const void* buf, size_t cnt);
 
 int main(void)
 {
@@ -145,5 +151,29 @@ int main(void)
   str3 = ft_strdup(str1);
   printf("Valor esperado %s, valor obtido %s\n", str2, str3);
 
+  printf("\n");
+  printf("**********************");
+  printf("TESTE FUNCAO FT_READ");
+  printf("**********************\n");
+
+	int		fd1;
+  int		fd2;
+	size_t	respEsp;
+  size_t	respObt;
+	char	bufferEsp[100];
+  char	bufferObt[100];
+
+	fd1 = open("texto.txt", O_RDONLY);
+  fd2 = open("texto.txt", O_RDONLY);
+	memset(bufferEsp, 0, 100);
+  memset(bufferObt, 0, 100);
+
+  respEsp = read(fd1, bufferEsp, 100);
+  respObt = ft_read(fd2, bufferObt, 100);
+	printf("Valor esperado %s, valor obtido %s\n",bufferEsp, bufferObt);
+	printf("Valor esperado %ld, valor obtido %ld\n",respEsp, respObt);
+
+  close(fd1);
+  close(fd2);
   return (0);
 }
